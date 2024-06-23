@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { VscGithubInverted } from "react-icons/vsc";
-
+import React, { useContext, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../utils/firebase.config";
 import { Bounce, toast } from "react-toastify";
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 const Login = () => {
+  const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -30,6 +32,19 @@ const Login = () => {
             theme: "dark",
             transition: Bounce,
           });
+          // 1. set the user
+          setUser({ email: user.email, name: user.displayName });
+
+          // 2. save in localStorage
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ email: user.email, name: user.displayName })
+          );
+
+          // 3. navigate to home
+          setTimeout(() => {
+            navigate("/home");
+          }, 2500);
         } else {
           toast.error("Please Check mailBox and  Verify your email " + " 😔", {
             position: "top-center",
@@ -57,8 +72,6 @@ const Login = () => {
           transition: Bounce,
         });
       });
-
-    console.log(inputs);
   };
 
   return (
@@ -88,7 +101,7 @@ const Login = () => {
         Login
       </button>
 
-      <h6 className="text-center mt-2 underline underline-offset-4">
+      <h6 className="text-center mt-2 text-gray-300 underline underline-offset-4">
         <Link to={"forget-password"}> Forget Your Password</Link>
       </h6>
     </form>
