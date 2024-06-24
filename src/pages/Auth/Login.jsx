@@ -43,7 +43,7 @@ const Login = () => {
 
           // 3. navigate to home
           setTimeout(() => {
-            navigate("/home");
+            navigate("/room");
           }, 2500);
         } else {
           toast.error("Please Check mailBox and  Verify your email " + " 😔", {

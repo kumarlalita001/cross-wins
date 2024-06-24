@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Outlet, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { Bounce, ToastContainer } from "react-toastify";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 
 const AuthLayout = () => {
   //   const { pathname } = useLocation();
@@ -9,6 +9,20 @@ const AuthLayout = () => {
   //   useEffect(() => {
   //     pathname == "/" && navigate("/signin");
   //   }, [pathname]);
+
+  const handleMultiLogin = () => {
+    toast.warn("Services Currently Unavailable", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+  };
 
   return (
     <div
@@ -45,7 +59,10 @@ const AuthLayout = () => {
           <span className="text-gray-200">Or continue with</span>
         </div>
         <div className="flex justify-around mt-4">
-          <button className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center">
+          <button
+            onClick={handleMultiLogin}
+            className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -65,7 +82,10 @@ const AuthLayout = () => {
             </svg>
           </button>
 
-          <button className="w-10 h-10 bg-white text-black border border-gray-300 rounded-full flex items-center justify-center">
+          <button
+            onClick={handleMultiLogin}
+            className="w-10 h-10 bg-white text-black border border-gray-300 rounded-full flex items-center justify-center"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -93,7 +113,10 @@ const AuthLayout = () => {
             </svg>
           </button>
 
-          <button className="w-10 h-10 bg-white text-black border border-gray-300 rounded-full flex items-center justify-center">
+          <button
+            onClick={handleMultiLogin}
+            className="w-10 h-10 bg-white text-black border border-gray-300 rounded-full flex items-center justify-center"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
