@@ -121,7 +121,7 @@ const Room = () => {
               type="text"
               value={roomCode}
               onChange={(e) => setRoomCode(e.target.value)}
-              placeholder=" Room Code (eg: 52342)"
+              placeholder=" eg: 523421 "
               className="w-full bg-inherit px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <button

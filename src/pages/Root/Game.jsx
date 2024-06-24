@@ -122,11 +122,11 @@ const TicTacToe = () => {
   return (
     <div className="flex flex-col justify-center items-center relative">
       {!winner && (
-        <div className="text-2xl w-full  font-bold opacity-60 text-purple-50 mb-6 text-center justify-between items-center flex  md:flex-row gap-6 ">
+        <div className="text-sm w-full  font-bold opacity-60 text-purple-50 mb-6 text-center justify-between items-center flex  md:flex-row gap-6 ">
           <h2 className="font-mono px-2 py-1   bg-blue-500 rounded-md">
             RoomId {roomId}
           </h2>
-          <h2 className="font-mono px-2 py-1  bg-indigo-400 rounded-md">
+          <h2 className="font-mono  px-2 py-1  bg-indigo-400 rounded-md">
             Turn {isXNext ? " X" : "O"}
           </h2>
           <h2 className="font-mono px-2 py-1  bg-teal-500 rounded-md">
@@ -139,7 +139,7 @@ const TicTacToe = () => {
           {board.map((value, index) => (
             <div
               key={index}
-              className="cell w-14 h-14 shadow-sm shadow-orange-50   bg-slate-800 text-white flex items-center justify-center cursor-pointer"
+              className="cell w-14 h-14 shadow-sm shadow-orange-50   bg-slate-800 text-white flex items-center flex-wrap justify-center cursor-pointer"
               onClick={() => {
                 isXNext == (XorO == "X")
                   ? handleClick(index)

@@ -30,22 +30,19 @@ const Register = () => {
       .then((res) => {
         const user = res.user;
 
-        sendEmailVerification(user, { url: "http://localhost:5173/" })
+        sendEmailVerification(user, { url: "https://cross-wins.web.app" })
           .then((res) => {
-            toast.warn(
-              " Please verify your email by checking your mailbox 🔥",
-              {
-                position: "top-center",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-                transition: Bounce,
-              }
-            );
+            toast.success("Email sent!!! Please verify your email 🔥", {
+              position: "top-center",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              transition: Bounce,
+            });
           })
           .catch((err) => {
             toast.error(err.message + " 😉", {

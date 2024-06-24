@@ -9,7 +9,7 @@ const ForgetPassword = () => {
   const handleResetPassword = (e) => {
     e.preventDefault();
     sendPasswordResetEmail(auth, emailRef.current.value, {
-      url: "http://localhost:5173/",
+      url: "https://cross-wins.web.app",
     })
       .then(() => {
         toast.success("Password reset email sent! 📧", {
